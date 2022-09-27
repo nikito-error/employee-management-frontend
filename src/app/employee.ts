@@ -1,4 +1,4 @@
-export class Employee {//objects
+export class Employee {//variable of employee class
     id: number;
     firstName: string;
     lastName: string;
