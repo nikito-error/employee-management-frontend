@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Employee } from '../employee';
 import { EmployeeService } from '../employee.service';
 
@@ -22,5 +23,14 @@ export class EmployeeListComponent implements OnInit {
   }
   updateEmployee(id: number){
     this.router.navigate(['update-employee',id]);
+  }
+  deleteEmployee(id: number){
+    this.employeeService.deleteEmployee(id).subscribe(data => {
+      console.log(data);
+      this.getEmployees();
+    });
+  }
+  detailsEmployee(id: number){
+    this.router.navigate(['employee-details',id]);
   }
 }
